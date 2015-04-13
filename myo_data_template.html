@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='utf-8'>
+    <script src='jquery-1.11.2.min.js'></script>
+    <script src='highcharts.js'></script>
+    <title>MYO</title>
+  </head>
+  <body></body>
+  <script>
+    function plotChart(categories_data, series_data, type, chart_id) {
+      $('#'.concat(chart_id)).highcharts({
+          title: {
+              text: type,
+              x: -20 //center
+          },
+          xAxis: {
+              categories: categories_data
+          },
+          yAxis: {
+              plotLines: [{
+                  value: 0,
+                  width: 1,
+                  color: '#808080'
+              }]
+          },
+          legend: {
+              layout: 'vertical',
+              align: 'right',
+              verticalAlign: 'middle',
+              borderWidth: 0
+          },
+          series: series_data
+      });
+    }
+    $(document).ready(function() {
+      _@_plotChart(categories_data, series_data, type, chart_id);_@_
+    });
+  </script>
+  _@_<div id='chart_id'></div>_@_
+</html>
